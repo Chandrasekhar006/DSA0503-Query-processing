@@ -1,0 +1,32 @@
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with random values
+data = {
+    'Column1': np.random.rand(10),
+    'Column2': np.random.randint(1, 100, size=10),
+    'Column3': np.random.uniform(0, 1, 10),
+    'Column4': np.random.choice(['A', 'B', 'C', 'D', 'E'], size=10)
+}
+
+df = pd.DataFrame(data)
+
+# Randomly convert some values to NaN
+nan_rows = np.random.randint(0, 10, 5)
+nan_cols = np.random.randint(0, 4, 5)
+
+for row, col in zip(nan_rows, nan_cols):
+    df.iat[row, col] = np.nan
+
+# Define a function to highlight NaN values
+def highlight_nan(value):
+    if pd.isna(value):
+        return 'background-color: yellow'
+    else:
+        return ''
+
+# Apply the function to the DataFrame
+styled_df = df.style.applymap(highlight_nan)
+
+# Display the styled DataFrame
+styled_df
