@@ -1,0 +1,16 @@
+import pandas as pd
+
+data = {
+    'Column1': ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'],
+}
+
+df = pd.DataFrame(data)
+
+# Specify the column to swap cases for
+column_to_swap_case = 'Column1'
+
+# Swap the cases of the specified column
+df[column_to_swap_case] = df[column_to_swap_case].str.swapcase()
+
+# Display the DataFrame with swapped cases
+print(df)
