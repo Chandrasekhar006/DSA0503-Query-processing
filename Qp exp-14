@@ -1,0 +1,23 @@
+import pandas as pd
+import numpy as np
+
+# Create a sample DataFrame with missing values
+data = {
+    'Column1': [1, 2, np.nan, 4, 5],
+    'Column2': [6, np.nan, 8, np.nan, 10],
+    'Column3': [np.nan, np.nan, np.nan, np.nan, np.nan],
+}
+
+df = pd.DataFrame(data)
+
+# Replace missing values in specific columns with meaningful values
+columns_to_fill = ['Column1', 'Column2']  # Specify the columns to fill
+
+# Define a value to replace missing values with (e.g., 0 or a custom placeholder)
+fill_value = 0
+
+# Use fillna to replace missing values in the specified columns
+df[columns_to_fill] = df[columns_to_fill].fillna(fill_value)
+
+# Display the DataFrame with missing values replaced
+print(df)
