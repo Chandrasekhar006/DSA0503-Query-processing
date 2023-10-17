@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+
+# Create a sample DataFrame with missing values
+data = {
+    'Column1': [1, 2, np.nan, 4, 5],
+    'Column2': [6, np.nan, 8, np.nan, 10],
+    'Column3': [np.nan, np.nan, np.nan, np.nan, np.nan],
+}
+
+df = pd.DataFrame(data)
+
+# Detect missing values and display True or False
+missing_values = df.isna()  # You can also use df.isnull()
+
+print(missing_values)
